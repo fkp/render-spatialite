@@ -1,0 +1,9 @@
+scripts/data.sqlite
+client/TestApp/TestApp/bin/
+client/TestApp/TestApp/obj/
+*.suo
+client/TestAppUI/TestAppUI/packages/
+*.user
+client/TestAppUI/TestAppUI/TestAppUI/bin/
+client/TestAppUI/TestAppUI/TestAppUI/obj/
+client/TestApp/packages/
