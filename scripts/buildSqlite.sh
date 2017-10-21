@@ -1,1 +1,4 @@
-ogr2ogr -f SQLite data.sqlite -t_srs EPSG:27493 PG:"dbname=gis"
+srid=$1
+code=EPSG:$srid
+echo building to $code
+ogr2ogr -f SQLite data_$srid.sqlite -t_srs $code PG:"dbname=gis"
