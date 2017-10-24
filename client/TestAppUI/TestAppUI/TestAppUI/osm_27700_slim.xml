@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601 +x_0=400000 +y_0=-100000 +ellps=airy  +units=m +towgs84=446.448,-125.157,542.060,0.1502,0.2470,0.8421,-20.4894 +units=m +nodefs" background-color="#b5d0d0" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <!--<Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>-->
+  <Parameter name="center">0,0,4</Parameter>
+  <Parameter name="format">png</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+  <Parameter name="scale">1</Parameter>
+  <Parameter name="metatile">2</Parameter>
+  <Parameter name="name"><![CDATA[OpenStreetMap Carto]]></Parameter>
+  <Parameter name="description"><![CDATA[A faithful reimplementation of the standard OpenStreetMap style]]></Parameter>
+</Parameters>
+
+  <FontSet name="fontset-0">
+    <Font face-name="Courier New" />
+    <Font face-name="Arial Italic" />
+    <Font face-name="Arial Unicode MS Regular" />
+  </FontSet>
+
+  <Style name="roads" filter-mode="first">
+    <Rule>
+      <Filter>([highway] != '')</Filter>
+      <MaxScaleDenominator>500000000</MaxScaleDenominator>
+      <MinScaleDenominator>0</MinScaleDenominator>
+      <LineSymbolizer stroke-linejoin="round" stroke-linecap="round" stroke-width="8.3" stroke="#bbbbbb" />
+    </Rule>
+    
+<!--    <Rule>
+      <Filter>([highway] = 'trunk')</Filter>
+      <MaxScaleDenominator>500000000</MaxScaleDenominator>
+      <MinScaleDenominator>0</MinScaleDenominator>
+      <LineSymbolizer stroke="#94d494" stroke-width="15.5" stroke-linecap="round" stroke-linejoin="round" />
+    </Rule>
+    <Rule>
+      <Filter>([highway] = 'secondary')</Filter>
+      <MaxScaleDenominator>500000000</MaxScaleDenominator>
+      <MinScaleDenominator>0</MinScaleDenominator>
+      <LineSymbolizer stroke-width="2" stroke="#f9d6aa" />
+    </Rule>
+    <Rule>
+      <Filter>([highway] != '')</Filter>
+      <MaxScaleDenominator>500000000</MaxScaleDenominator>
+      <MinScaleDenominator>0</MinScaleDenominator>
+      <LineSymbolizer stroke="#94d494" stroke-width="15.5" stroke-linecap="round" stroke-linejoin="round" />
+    </Rule>-->
+  </Style>
+  <Layer name="roads" >
+    <StyleName>roads</StyleName>
+    <Datasource>
+      <Parameter name="file">data_27700.sqlite</Parameter>
+      <Parameter name="table">planet_osm_line</Parameter>
+      <Parameter name="type">sqlite</Parameter>
+      <Parameter name="geometry_field">Geometry</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Style name="buildings" filter-mode="first">
+    <Rule>
+      <Filter>([building] != '')</Filter>
+      <MaxScaleDenominator>500000000</MaxScaleDenominator>
+      <MinScaleDenominator>0</MinScaleDenominator>
+      <PolygonSymbolizer fill="#bca9a9" fill-opacity="0.9" clip="false" />
+      <LineSymbolizer stroke="#330066" stroke-width="0.2" />
+    </Rule>
+  </Style>
+  <Layer name="buildings" >
+    <StyleName>buildings</StyleName>
+    <Datasource>
+      <Parameter name="file">data_27700.sqlite</Parameter>
+      <Parameter name="table">planet_osm_polygon</Parameter>
+      <Parameter name="type">sqlite</Parameter>
+      <Parameter name="geometry_field">Geometry</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Style name="busStops" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>0</MinScaleDenominator>
+    <Filter>([highway] = 'bus_stop')</Filter>
+    <PointSymbolizer file="symbols/bus_stop.12.svg" />
+  </Rule>
+  </Style>
+  <Layer name="busStops" >
+    <StyleName>busStops</StyleName>
+    <Datasource>
+      <Parameter name="file">data_27700.sqlite</Parameter>
+      <Parameter name="table">planet_osm_point</Parameter>
+      <Parameter name="type">sqlite</Parameter>
+      <Parameter name="geometry_field">Geometry</Parameter>
+    </Datasource>
+  </Layer>
+</Map>

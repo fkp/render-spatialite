@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestAppUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="350">
+        Title="MainWindow" Height="600" Width="700">
     <Grid>
-        <Image x:Name="mapImage" HorizontalAlignment="Left" Height="300" Margin="10,10,10,10" VerticalAlignment="Top" Width="300"/>
+        <StackPanel Orientation="Vertical">
+            <Image x:Name="mapImage" HorizontalAlignment="Left" Height="500" Margin="0,0,0,0" VerticalAlignment="Top" Width="700"/>
+            <StackPanel Orientation="Horizontal" Width="Auto">
+                <Button Click="Button_Click_Left" Height="100" Width="100">Left</Button>
+                <Button Click="Button_Click_Up" Height="100" Width="100">Up</Button>
+                <Button Click="Button_Click_Down" Height="100" Width="100">Down</Button>
+                <Button Click="Button_Click_Right" Height="100" Width="100">Right</Button>
+                <Button Click="Button_Click_Out" Height="100" Width="100">Zoom Out</Button>
+                <Button Click="Button_Click_In" Height="100" Width="100">Zoom In</Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
